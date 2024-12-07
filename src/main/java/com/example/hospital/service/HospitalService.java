@@ -17,20 +17,6 @@ public class HospitalService {
 
     private static final String API_URL = "https://www.healthit.gov/data/open-api?source=Meaningful-Use-Acceleration-Scorecard.csv";
 
-   /* public List<HospitalDto> getHospitals(int year, double percentage) {
-        HospitalDto[] response = restTemplate.getForObject(API_URL, HospitalDto[].class);
-
-        if (response == null) {
-            throw new RuntimeException("Failed to fetch data");
-        }
-
-        List<HospitalDto> hospitalDtoList = Arrays.asList(response).stream()
-                .filter(h -> yearFilter(h, year, percentage))
-                .sorted(Comparator.comparing(hospitalDto -> hospitalDto.getRegion(), String.CASE_INSENSITIVE_ORDER))
-                .collect(Collectors.toList());
-
-        return hospitalDtoList;
-    }*/
 
     public List<HospitalDto> getHospitals(int year, double percentage) {
         List<HospitalDto> response = fetchHospitalList();
